@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Simple Login Form</title>
+    <meta charset="UTF-8" />
+    <meta name="Designer" content="PremiumPixels.com">
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/structure.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    @*<div class="container">
+@using (Html.BeginForm())
+{ 
+        <div class="box login">
+            
+            
+                @Html.ValidationSummary(true)
+                <fieldset class="boxBody">
+                    <h4>DANG NHAP HE THONG QUAN TRI</h4>
+                    <p>Vui long nhap Username va Password</p>
+                    <h4 style="color:red; text-align:center"> @ViewBag.Thongbao</h4>
+                    <label>Username</label>
+                    <input type="text" name="username" tabindex="1" placeholder="PremiumPixel" required>
+                    @ViewData["Loi1"]
+                    <label><a href="#" class="rLink" tabindex="5">Forget your password?</a>Password</label>
+                    <input type="password" name="password" tabindex="2" required>
+                    @ViewData["Loi2"]
+                </fieldset>
+                <footer>
+                    <label><input type="checkbox" tabindex="3">Keep me logged in</label>
+                    <button type="submit" class="btnLogin" value="Login" tabindex="4">Sign in</button>
+                </footer>
+            
+        </div>
+}
+    </div>
+<footer id="main">
+    <a href="http://wwww.cssjunction.com">Simple Login Form (HTML5/CSS3 Coded) by CSS Junction</a> | <a href="http://www.premiumpixels.com">PSD by Premium Pixels</a>
+</footer>*@
+
+
+    <h4 style="color:red; text-align:center"> @ViewBag.ThongBao</h4>
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <div class="box login">
+            @Html.ValidationSummary(true)
+            <fieldset class="boxBody">
+                <h3>ĐĂNG NHẬP HỆ THỐNG QUẢN TRỊ</h3>
+                <p>Vui lòng nhập user name và password:</p>
+                <label>Username</label>
+                <input type="text" name="username" tabindex="1" placeholder="PremiumPixel" required>
+                @ViewData["Loi1"]
+                <label><a href="#" class="rLink" tabindex="5">Forget your password?</a>Password</label>
+                <input type="password" name="password" tabindex="2" required>
+                @ViewData["Loi2"]
+            </fieldset>
+            <footer>
+                <label><input type="checkbox" tabindex="3">Keep me logged in</label>
+                <input type="submit" class="btnLogin" value="Login" tabindex="4">
+            </footer>
+
+        </div>
+    }
+</body>
+</html>

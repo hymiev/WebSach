@@ -1,0 +1,108 @@
+﻿@using MVCBookStore.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<MVCBookStore.Models.SACH>
+
+@helper Truncate(string input, int length)
+{
+    if(input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }      
+}
+
+@{
+    ViewBag.Title = "Sach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN SÁCH</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "Themmoisach")
+</p>
+
+<table class="table" border="1" style="border-color:#2e202a">
+    <tr>
+        <th style="width:500px; color:white; font-size: 20px;"> Tên sách</th>
+        <th style="width:500px; color:white; font-size: 20px;"> Giá bán</th>
+        <th style="width:1200px; color:white; font-size: 20px;"> Mô tả</th>
+        <th style="width:500px; color:white; font-size: 20px;"> Ảnh bìa</th>
+        <th style="width:500px; color:white; font-size: 20px;"> Ngày cập nhật</th>
+        <th style="width:500px; color:white; font-size: 20px;"> SL.Tồn</th>
+        <th style="width:500px; color:white; font-size: 20px;"> Tên chủ đề</th>
+        <th style="width:500px; color:white; font-size: 20px;"> Tên NXB</th>
+        <th style="width:500px; color:white; font-size: 20px;"></th>
+        </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tensach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dongia)
+        </td>
+        <td>
+            @Truncate(item.Mota, 100)
+        </td>
+        <td>
+            <img src="@Url.Content("~/img/" + item.Hinhminhhoa)" style="max-height:150px;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluongban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHAXUATBAN.TenNXB)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Suasach", new { id=item.Masach }) |
+            @Html.ActionLink("Chi tiết", "Chitietsach", new { id=item.Masach }) |
+            @Html.ActionLink("Xóa", "Xoasach", new { id=item.Masach })
+        </td>
+    </tr>
+}
+
+</table>
+@* Tao lien ket cac trang *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Sach", new { page = page}))
+</div>
+<style>
+    .MenuTrang li {
+        display : inline;
+    }
+    h2{
+        font-size : 25px;
+        color : white;
+        margin-top : 25px;
+    }
+    p {
+        font-size : 25px;
+        color : pink;
+        background:#F5A9A9;
+        border : outset;
+        border-color : #F5A9A9;
+        border-radius:10px;
+        width : 170px;
+        text-align :center;
+    }
+    tr {
+        font-size : 16px;
+        color : black;
+        font-family: "Times New Roman", Times, serif;
+    }
+    table {
+        margin-top : 30px;
+    }
+</style>

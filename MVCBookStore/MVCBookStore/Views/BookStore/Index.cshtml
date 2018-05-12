@@ -1,0 +1,52 @@
+﻿@using MVCBookStore.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+    
+            @foreach (var item in Model)
+            {
+                <div class="product_box" style="padding: 10px; border: 1px solid #2e202a; border-radius: 10px; width : 250px; float: right">
+                    <h1 style="height:80px; background: #2e202a; color:#aea68c; font-family:Arial; font-size:15px; border-radius:5px; text-align:center">@item.Tensach</h1>
+                    <img alt="@item.Tensach" src="~/img/@item.Hinhminhhoa" width="200px" height="250px" />
+                    <div class="product_info">
+                        <br />
+                        <h3>@item.Dongia</h3>
+                        <div class="buy_now_button" style="background:#BDBDBD; border-style:outset; border-radius:10px; width:80px; text-align:center"><a href="subpage.html">Buy Now</a></div>
+                        <div class="detail_button" style="background:#BDBDBD; border-style:outset; border-radius:10px; width:80px; text-align:center"><a href="@Url.Action("Details", "BookStore", new { id=item.Masach})">Detail</a></div>
+                    </div>
+                    <div class="cleaner">&nbsp;</div>
+                </div>
+    
+   
+
+            }
+@* Tao lien ket cac trang*@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/>@Model.PageCount;
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+
+            .MenuTrang li a {
+                margin: 0.2em;
+                padding: 1em;
+                background-color: #e27536;
+                color: white;
+            }
+
+        .product_box {
+            margin-right: 50px;
+        }
+
+    </style>

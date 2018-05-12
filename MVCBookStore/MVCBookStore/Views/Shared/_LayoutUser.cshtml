@@ -1,0 +1,227 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pink Shop Template</title>
+    <meta name="keywords" content="pink shop, store template, ecommerce, online shopping, CSS, HTML" />
+    <meta name="description" content="Pink Shop is a free ecommerce template provided by templatemo.com" />
+    <link href="~/Content/templatemo_style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="stylesheet/styles.css" />
+    <script language="javascript" type="text/javascript">
+    function clearText(field)
+    {
+        if (field.defaultValue == field.value) field.value = '';
+        else if (field.value == '') field.value = field.defaultValue;
+    }
+    </script>
+    <script language="javascript" type="text/javascript" src="~/Scripts/mootools-1.2.1-core.js"></script>
+    <script language="javascript" type="text/javascript" src="~/Scripts/mootools-1.2-more.js"></script>
+    <script language="javascript" type="text/javascript" src="~/Scripts/slideitmoo-1.1.js"></script>
+    <script language="javascript" type="text/javascript">
+	window.addEvents({
+		'domready': function(){
+			/* thumbnails example , div containers */
+			new SlideItMoo({
+						overallContainer: 'SlideItMoo_outer',
+						elementScrolled: 'SlideItMoo_inner',
+						thumbsContainer: 'SlideItMoo_items',
+						itemsVisible: 5,
+						elemsSlide: 3,
+						duration: 200,
+						itemsSelector: '.SlideItMoo_element',
+						itemWidth: 140,
+						showControls:1});
+		},
+
+	});
+    </script>
+</head>
+<body>
+    <div id="templatemo_wrapper">
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="#" class="current"><span>.01</span>Home</a></li>
+                <li><a href="#"><span>.02</span>Company</a></li>
+                <li><a href="#"><span>.03</span>Contact</a></li>
+                <li>@{Html.RenderAction("GiohangPartial", "Giohang");}</li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+
+        <div id="templatemo_header_bar">
+
+            <div id="header">
+                <div class="right"></div>
+
+                <h1>
+                    <a href="http://www.templatemo.com" target="_parent">
+                        <img src="/images/templatemo_logo.png" alt="Site Title" />
+                        <span style="font-size:20px">Vu Ngoc Huyen - 15DH110159 - Ca2</span>
+                    </a>
+                </h1>
+            </div>
+
+            <div id="search_box">
+                <form action="#" method="get">
+                    <input type="text" value="Enter keyword here..." name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+                    <input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search" />
+                </form>
+            </div>
+
+        </div> <!-- end of templatemo_header_bar -->
+
+        <div class="cleaner"></div>
+           
+
+        <div id="sidebar">
+            <div class="sidebar_top"></div><div class="sidebar_bottom"></div>
+            <div class="sidebar_section">
+                <h2>Members</h2>
+
+                <form action="#" method="get">
+                    <label>Username</label>
+                    <input type="text" value="" name="username" size="10" class="input_field" title="username" />
+                    <label>Password</label>
+                    <input type="password" value="" name="password" class="input_field" title="password" />
+                    <a href="#">Register</a>
+                    <input type="submit" name="login" value="Login" alt="Login" id="submit_btn" title="Login" />
+                </form>
+
+                <div class="cleaner"></div>
+            </div>
+
+            <div class="'container">
+                <div class="row">
+                    <h2>CHỦ ĐỀ SÁCH</h2>
+                    <div class="col-md-3">
+                        @Html.Action("Chude", "BookStore")
+                    </div>
+
+                </div>
+                <div class="cleaner"></div>
+            </div>
+
+            <div class="sidebar_section">
+
+                <h2>NHÀ XUẤT BẢN</h2>
+
+                <div class="col-md-3">
+                    @Html.Action("Nhaxuatban", "BookStore")
+                </div>
+            </div>
+
+            <div class="sidebar_section">
+
+                <h2>Discounts</h2>
+
+                <div class="image_wrapper"><a href="http://www.templatemo.com/page/7" target="_parent"><img src="/images/image_01.jpg" alt="product" /></a></div>
+                <div class="discount"><span>25% off</span> | <a href="#">Read more</a></div>
+
+            </div>
+
+        </div> <!-- end of sidebar -->
+   
+
+        <div id="templatmeo_content">
+
+            <div id="latest_product_gallery">
+
+                <h2>Our Books</h2>
+
+                <div id="SlideItMoo_outer">
+                    <div id="SlideItMoo_inner">
+                        <div id="SlideItMoo_items">
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="/img/TH005.jpg" alt="product 1" />
+                                </a>
+
+                            </div>
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="/img/TH006.jpg" alt="product 2" />
+                                </a>
+
+                            </div>
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="~/img/TH007.jpg" alt="product 3" />
+                                </a>
+
+                            </div>
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="~/img/TH004.jpg" alt="product 4" />
+                                </a>
+
+                            </div>
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="~/img/TiengAnh01.jpg" alt="product 5" />
+                                </a>
+
+                            </div>
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="~/img/KT0006.jpg" alt="product 6" />
+                                </a>
+
+                            </div>
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="~/img/TH003.jpg" alt="product 7" />
+                                </a>
+                            </div>
+                            <div class="SlideItMoo_element">
+                                <a href="#">
+                                    <img src="~/img/KT0001.jpg" alt="product 8" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end of latest_content_gallery -->
+
+
+            <div class="content_section">
+
+                <h2>New Books</h2>
+                    <div>
+                        @RenderBody()
+                    </div>
+                    <a href="index.html"></a>
+
+                </div> <!-- end of templatmeo_content -->
+
+        <div class="cleaner_with_height">&nbsp;</div>
+        </div>
+        <div class="cleaner_with_height">&nbsp;</div>
+
+    </div> <!-- end of templatemo_wrapper -->
+
+    <div id="templatemo_footer_wrapper">
+
+        <div id="templatemo_footer">
+
+            <ul class="footer_menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="http://www.templatemo.com/page/1" target="_parent">CSS Templates</a></li>
+                <li><a href="http://www.flashmo.com/page/1" target="_parent">Flash Resources</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Company</a></li>
+                <li class="last_menu"><a href="#">Contact</a></li>
+            </ul>
+
+            Copyright © 2048 <a href="#">Your Company Name</a> |
+            <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Template</a>
+        </div>
+        <!-- end of footer -->
+
+    </div> <!-- end of footer_wrapper -->
+    <div align=center>Thank you and see you again</a></div>
+</body>
+</html>
